@@ -1,0 +1,22 @@
+{
+  "name": "libs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Felipe Vargas",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/node": "^13.7.7",
+    "babel-core": "7.0.0-bridge.0",
+    "lerna": "^3.20.2",
+    "typescript": "^3.8.3"
+  }
+}
