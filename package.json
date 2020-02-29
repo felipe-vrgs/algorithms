@@ -5,18 +5,73 @@
   "author": "Felipe Vargas",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "commit": "git-cz",
+    "tsc": "tsc",
+    "test": "jest",
+    "fix": "yarn lint:ts --fix",
+    "lint": "run-p -c lint:*",
+    "lint:ts": "eslint 'packages/**/*.ts{,x}'",
+    "lint:css": "stylelint 'packages/**/*.ts{,x}'",
+    "prebuild": "run-p tsc lint test",
+    "build": "lerna exec --parallel 'BABEL_ENV=build babel --root-mode upward src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --no-comments'",
+    "build:declarations": "lerna exec --concurrency 1 'tsc --project ./tsconfig.build.json'",
+    "postbuild": "yarn build:declarations"
+  },
   "workspaces": [
     "packages/*"
   ],
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.1.3",
     "@types/node": "^13.7.7",
+    "@types/react": "^16.9.23",
+    "@types/storybook__addon-actions": "^5.2.1",
+    "@types/storybook__addon-links": "^5.2.1",
+    "@types/storybook__react": "^5.2.1",
+    "@types/vfile-message": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "7.0.0-bridge.0",
+    "commitizen": "^4.0.3",
+    "cz-lerna-changelog": "^2.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.0.0-beta6",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "jest": "^25.1.0",
+    "jest-styled-components": "^7.0.0",
     "lerna": "^3.20.2",
-    "typescript": "^3.8.3"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "styled-components": "^5.0.1",
+    "stylelint": "^13.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.41.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "name": "@algorithms/quicksort",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Felipe Vargas",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@algorithms/libs": "^1.0.0"
+  }
+}
