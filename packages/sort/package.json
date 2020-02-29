@@ -1,5 +1,5 @@
 {
-  "name": "@algorithms/quicksort",
+  "name": "@algorithms/sort",
   "version": "1.0.0",
   "main": "dist/index.js",
   "author": "Felipe Vargas",

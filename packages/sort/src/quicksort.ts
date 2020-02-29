@@ -13,15 +13,17 @@ const partition = (arr: number[], low: number, high: number): number => {
   return q;
 };
 
-const quickSort = (arr: number[], low?: number, high?: number): number[] => {
+export const quicksort = (
+  arr: number[],
+  low?: number,
+  high?: number,
+): number[] => {
   if (low === undefined) low = 0;
   if (high === undefined) high = arr.length - 1;
   if (low < high) {
     const pivot: number = partition(arr, low, high);
-    quickSort(arr, low, pivot - 1);
-    quickSort(arr, pivot + 1, high);
+    quicksort(arr, low, pivot - 1);
+    quicksort(arr, pivot + 1, high);
   }
   return arr;
 };
-
-export default quickSort;
